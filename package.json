@@ -1,0 +1,29 @@
+{
+  "name": "kritsada-cpn-residence",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:next\" \"npm run dev:api\"",
+    "dev:next": "next dev -p 3000",
+    "dev:api": "uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload",
+    "test:api": "python -m pytest -q backend/tests",
+    "dev:all": "concurrently -n API,WEB \"python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload\" \"npm --prefix frontend run dev -- -p 3000\"",
+    "build": "npm --prefix frontend run build",
+    "start:prod": "concurrently -n API,WEB \"python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000\" \"npm --prefix frontend run start -- -p $PORT\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.13.11",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.562.0",
+    "next": "^15.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

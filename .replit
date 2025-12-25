@@ -1,0 +1,26 @@
+entrypoint = "index.js"
+modules = ["nodejs-22", "python-3.11", "postgresql-16"]
+hidden = [".config", "package-lock.json"]
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", "package.json", "package-lock.json"]
+
+[nix]
+channel = "stable-24_11"
+
+[deployment]
+run = ["sh", "-c", "npm run start:prod"]
+deploymentTarget = "autoscale"
+ignorePorts = false
+build = ["sh", "-c", "pip install -r requirements.txt && npm --prefix frontend ci && npm --prefix frontend run build"]
+
+[agent]
+expertMode = true
+
+[[ports]]
+localPort = 3000
+externalPort = 3000
+
+[[ports]]
+localPort = 8000
+externalPort = 80
