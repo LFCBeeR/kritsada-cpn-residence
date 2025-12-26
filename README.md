@@ -4,4 +4,6 @@ All the code I'm working on is on Replit. If you have a Replit account, I recomm
 
 My Replit => https://replit.com/@LFCBeeR/kritsada-cpn-residence?v=1
 
+Or if you'd like to try it out in a real-world test, you can go to this link => https://kritsada-cpn-residence.replit.app
+
 ![Screenshot of the web application](cover_image.png)
